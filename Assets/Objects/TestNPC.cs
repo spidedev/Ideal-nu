@@ -17,13 +17,38 @@ public class TestNPC : MonoBehaviour
     [SerializeField] private TextAsset _dialogue;
     public AudioSource source;
     public static GameObject selected;
+    
+    [Header("Mission Only")]
+    
+    public bool isMission;
+
+    private int plrLvl;
+
+    [SerializeField] QuestInfoSO questInfoForPoint;
+    private string QuestName;
+    private QuestState currentQuestState;
+    public bool StartPoint, FinishPoint;
+    [SerializeField] private TextAsset _finishdialogue;
+    
 
     [Header("(Don't use if not an Item.)")]
     public ItemObject item;
 
     public int amount;
-    
-    
+
+    private void Awake()
+    {
+        if (isMission)
+        {
+            QuestName = questInfoForPoint.name;
+        }
+    }
+
+    private void ChangeLVL(int level)
+    {
+        plrLvl = level;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,12 +108,32 @@ public class TestNPC : MonoBehaviour
     {
         PlayerMovement._confirmed += AddTimer;
         PlayerMovement._canceledconfirmed += StopTimer;
+        if (isMission)
+        {
+            QuestEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
+            PlayerStats.LevelChanged += ChangeLVL;
+        }
     }
 
     private void OnDisable()
     {
         PlayerMovement._confirmed -= AddTimer;
         PlayerMovement._canceledconfirmed -= StopTimer;
+        
+        if (isMission)
+        {
+            QuestEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
+            PlayerStats.LevelChanged -= ChangeLVL;
+        }
+    }
+
+    private void QuestStateChange(Quest quest)
+    {
+        if (quest.info.name.Equals(QuestName))
+        {
+            currentQuestState = quest.state;
+            Debug.Log("Quest with name of: " + quest.info.name + " updated its state to " + currentQuestState.ToString().ToLower());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -132,7 +177,43 @@ public class TestNPC : MonoBehaviour
         {
             if (_settings.type == ObjectSettings.Type.NPC)
             {
-                DialogueManager.GetInstance().EnterDialogueMode(_dialogue);
+                if (!isMission || isMission && currentQuestState != QuestState.CAN_FINISH && currentQuestState != QuestState.FINISHED)
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(_dialogue);
+                }
+                else if (isMission && currentQuestState == QuestState.CAN_FINISH)
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(_finishdialogue);
+                }
+                else if (isMission && currentQuestState == QuestState.FINISHED)
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(_finishdialogue);
+                }
+
+                if (isMission)
+                {
+                    if (currentQuestState.Equals(QuestState.CAN_START) && StartPoint)
+                    {
+                        QuestEventsManager.instance.questEvents.StartQuest(QuestName);
+                    } else if (currentQuestState.Equals(QuestState.CAN_FINISH) && FinishPoint)
+                    {
+                        QuestEventsManager.instance.questEvents.FinishQuest(QuestName);
+                    }
+                    else
+                    {
+                        if (currentQuestState.Equals(QuestState.REQUIREMENTS_NOT_MET))
+                        {
+                            if (plrLvl < questInfoForPoint.levelRequirement)
+                            {
+                                PopupManagement_MNG.GetInstance().CreatePopUp("Your level is too low for this mission.\nBe level " + questInfoForPoint.levelRequirement + " to start the mission");
+                            }
+                            else
+                            {
+                                PopupManagement_MNG.GetInstance().CreatePopUp("You have to do something else before starting this mission.");
+                            }
+                        }
+                    }
+                }
             } else if (_settings.type == ObjectSettings.Type.Item)
             {
                 if (_settings.DialogueNeeded)

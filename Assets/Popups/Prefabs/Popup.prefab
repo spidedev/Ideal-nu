@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 8982967403512618023}
   m_Layer: 5
   m_Name: Popup
-  m_TagString: Untagged
+  m_TagString: Popuo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

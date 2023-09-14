@@ -649,8 +649,8 @@ public class PauseManager : MonoBehaviour
     private void UseItem()
     {
         InventoryManagement_PLR.GetInstance().inventory.TossItem(obj);
-        PlayerStats.GetInstance().exp += obj.item.exp;
-        PlayerStats.GetInstance().health += obj.item.health;
+        PlayerStats.instance.exp += obj.item.exp;
+        PlayerStats.instance.health += obj.item.health;
     }
 
     private void HandleSpecialPrefsFwd()

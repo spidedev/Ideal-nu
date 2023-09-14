@@ -1,15 +1,9 @@
-Ketchup:Ah, youngin!
-Ketchup:Let me caress your senses with my beautiful poetry!
-Ketchup:(Ugly coughing.)
-Ketchup:I am currently in pain.
-Ketchup:In tears, even.
-Ketchup:How could have you been so cold with this?
-Ketchup:Your shoulder remains frozen.
-Ketchup:You see, I see.
-Ketchup:Ketchup BottleSpat, 2019.
+Ketchup:Hello, Bazilik!
+Ketchup:I have a quest for you!
+Ketchup:Can you open your stats 6 times?
 *** What the hell?
 -> MainCome
-*** Poetic, I love it!
+*** OBVIOUSLY!
 Ketchup:Ahh, you are a true man of words! May I be your friend?
 Bazilik: Absolutely not.
 -> MainCome

@@ -16,7 +16,7 @@ public class InventoryObject : ScriptableObject
         bool hasItem = false;
         for (int i = 0; i < Container.Count; i++)
         {
-            if (Container[i].item == _item && Container[i].amount < PlayerStats.GetInstance().stackLimit)
+            if (Container[i].item == _item && Container[i].amount < PlayerStats.instance.stackLimit)
             {
                 Container[i].AddAmount(_amount);
                 hasItem = true;

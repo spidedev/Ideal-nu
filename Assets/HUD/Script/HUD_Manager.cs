@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HUD_Manager : MonoBehaviour
 {
-    public TextMeshProUGUI health, sth;
+    public TextMeshProUGUI health, sth, level;
     public Slider healthSlider, sthSlider, HUDHEALTH, HUDSTH;
     public Animator gui;
     public Animator alwaysHUD;
@@ -18,6 +18,8 @@ public class HUD_Manager : MonoBehaviour
     private AudioSource _source;
     
     public MainInput _input;
+
+    private int currentLVL;
 
     public bool alwaysHUD_bool, closeAHUD;
 
@@ -35,11 +37,18 @@ public class HUD_Manager : MonoBehaviour
     private void OnEnable()
     {
         _input.Enable();
+        PlayerStats.LevelChanged += updateLevel;
     }
 
     private void OnDisable()
     {
         _input.Disable();
+        PlayerStats.LevelChanged -= updateLevel;
+    }
+
+    private void updateLevel(int level)
+    {
+        currentLVL = level;
     }
 
     // Update is called once per frame
@@ -47,17 +56,19 @@ public class HUD_Manager : MonoBehaviour
     {
         alwaysHUD_bool = PauseManager.headsUpDisplay;
         
-        health.text = PlayerStats.GetInstance().health + "/" + PlayerStats.GetInstance().maxHealth;
-        sth.text = PlayerStats.GetInstance().tp + "/" + PlayerStats.GetInstance().maxTp;
-        healthSlider.value = PlayerStats.GetInstance().health;
-        healthSlider.maxValue = PlayerStats.GetInstance().maxHealth;
-        sthSlider.value = PlayerStats.GetInstance().tp;
-        sthSlider.maxValue = PlayerStats.GetInstance().maxTp;
+        health.text = PlayerStats.instance.health + "/" + PlayerStats.instance.maxHealth;
+        sth.text = PlayerStats.instance.tp + "/" + PlayerStats.instance.maxTp;
+        healthSlider.value = PlayerStats.instance.health;
+        healthSlider.maxValue = PlayerStats.instance.maxHealth;
+        sthSlider.value = PlayerStats.instance.tp;
+        sthSlider.maxValue = PlayerStats.instance.maxTp;
+        level.text = "Level " + currentLVL.ToString();
         
-        HUDHEALTH.value = PlayerStats.GetInstance().health;
-        HUDHEALTH.maxValue = PlayerStats.GetInstance().maxHealth;
-        HUDSTH.value = PlayerStats.GetInstance().tp;
-        HUDSTH.maxValue = PlayerStats.GetInstance().maxTp;
+        
+        HUDHEALTH.value = PlayerStats.instance.health;
+        HUDHEALTH.maxValue = PlayerStats.instance.maxHealth;
+        HUDSTH.value = PlayerStats.instance.tp;
+        HUDSTH.maxValue = PlayerStats.instance.maxTp;
 
         if (!closeAHUD && alwaysHUD_bool)
         {

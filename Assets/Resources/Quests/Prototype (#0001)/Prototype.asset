@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da19f9e0a300613459f065f3baf5cba0, type: 3}
+  m_Name: Prototype
+  m_EditorClassIdentifier: 
+  name: First Mission
+  levelRequirement: 1
+  questRequisites: []
+  questStepsPrefabs:
+  - {fileID: 7476253867944477841, guid: 4238a42e4ea7627489668bb7bf150641, type: 3}
+  - {fileID: 7476253867944477841, guid: 4238a42e4ea7627489668bb7bf150641, type: 3}
+  goldReward: 0
+  expReward: 13

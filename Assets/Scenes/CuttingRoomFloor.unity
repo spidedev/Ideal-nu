@@ -280,6 +280,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20472686}
   m_CullTransparentMesh: 1
+--- !u!1 &25259431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 25259432}
+  - component: {fileID: 25259433}
+  m_Layer: 0
+  m_Name: Quest Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &25259432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25259431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1514822506}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25259433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25259431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280b57e20986a68479f285725ba59758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &116226101
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +789,7 @@ RectTransform:
   - {fileID: 352453545}
   - {fileID: 1109940948}
   - {fileID: 1959581560}
+  - {fileID: 1644762609}
   - {fileID: 676360232}
   m_Father: {fileID: 1522745379}
   m_RootOrder: 0
@@ -3813,6 +3857,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: 9727fe64a2dfb7b46811a3db062afc7b, type: 2}
   _dialogue: {fileID: 4900000, guid: dece73cfffadfd34f8d6141130278dc5, type: 3}
   source: {fileID: 0}
+  isMission: 0
+  questInfoForPoint: {fileID: 0}
+  StartPoint: 0
+  FinishPoint: 0
+  _finishdialogue: {fileID: 0}
   item: {fileID: 11400000, guid: a04427c56727c3b449a2c9ee81119f15, type: 2}
   amount: 1
 --- !u!212 &313479148
@@ -4667,6 +4716,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: ec549113320f8664d80c06c9f0362743, type: 2}
   _dialogue: {fileID: 4900000, guid: dece73cfffadfd34f8d6141130278dc5, type: 3}
   source: {fileID: 0}
+  isMission: 0
+  questInfoForPoint: {fileID: 0}
+  StartPoint: 0
+  FinishPoint: 0
+  _finishdialogue: {fileID: 0}
   item: {fileID: 11400000, guid: 5d620fecdc3af644aa3b99d1209b49fd, type: 2}
   amount: 1
 --- !u!212 &419774977
@@ -5274,6 +5328,49 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!1 &527179375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527179376}
+  - component: {fileID: 527179377}
+  m_Layer: 0
+  m_Name: Quest Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527179376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527179375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1514822506}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527179377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527179375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893da2a28bf2b7744a3d0a9dcd0881f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &529427322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5997,11 +6094,11 @@ RectTransform:
   m_Children:
   - {fileID: 1847591371}
   m_Father: {fileID: 190954192}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 107.48571, y: -5.2514}
+  m_AnchoredPosition: {x: 107.48571, y: 8.4}
   m_SizeDelta: {x: 106.5643, y: 89.4972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676360233
@@ -8579,6 +8676,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: ec549113320f8664d80c06c9f0362743, type: 2}
   _dialogue: {fileID: 4900000, guid: dece73cfffadfd34f8d6141130278dc5, type: 3}
   source: {fileID: 0}
+  isMission: 0
+  questInfoForPoint: {fileID: 0}
+  StartPoint: 0
+  FinishPoint: 0
+  _finishdialogue: {fileID: 0}
   item: {fileID: 11400000, guid: 5d620fecdc3af644aa3b99d1209b49fd, type: 2}
   amount: 1
 --- !u!212 &943037113
@@ -11744,6 +11846,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: ec549113320f8664d80c06c9f0362743, type: 2}
   _dialogue: {fileID: 4900000, guid: dece73cfffadfd34f8d6141130278dc5, type: 3}
   source: {fileID: 0}
+  isMission: 0
+  questInfoForPoint: {fileID: 0}
+  StartPoint: 0
+  FinishPoint: 0
+  _finishdialogue: {fileID: 0}
   item: {fileID: 11400000, guid: 5d620fecdc3af644aa3b99d1209b49fd, type: 2}
   amount: 1
 --- !u!212 &1319014630
@@ -12880,6 +12987,8 @@ Transform:
   - {fileID: 1433038434}
   - {fileID: 1736003818}
   - {fileID: 1545475429}
+  - {fileID: 527179376}
+  - {fileID: 25259432}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13116,6 +13225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 1947823986}
   sth: {fileID: 1849054569}
+  level: {fileID: 1644762610}
   healthSlider: {fileID: 352453546}
   sthSlider: {fileID: 1959581561}
   HUDHEALTH: {fileID: 1869300081}
@@ -14056,6 +14166,141 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1644762608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1644762609}
+  - component: {fileID: 1644762611}
+  - component: {fileID: 1644762610}
+  m_Layer: 5
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1644762609
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644762608}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 190954192}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 107.49, y: -48.2}
+  m_SizeDelta: {x: 106.57, y: 13.252}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1644762610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644762608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Level 18
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: e3b8e1a6f354b6f4ba29e9d00a3c349d, type: 2}
+  m_sharedMaterial: {fileID: 5748122981437592870, guid: e3b8e1a6f354b6f4ba29e9d00a3c349d,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 16.9
+  m_fontSizeBase: 16.9
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1644762611
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644762608}
+  m_CullTransparentMesh: 1
 --- !u!1 &1645226202
 GameObject:
   m_ObjectHideFlags: 0
@@ -14419,6 +14664,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: f9cd84f01e788b447b0ac16b3fe47f8f, type: 2}
   _dialogue: {fileID: 4900000, guid: 16d4b3d1db34cd3459490db3cda49859, type: 3}
   source: {fileID: 0}
+  isMission: 0
+  questInfoForPoint: {fileID: 0}
+  StartPoint: 0
+  FinishPoint: 0
+  _finishdialogue: {fileID: 0}
   item: {fileID: 0}
   amount: 0
 --- !u!212 &1676512820
@@ -16480,6 +16730,7 @@ MonoBehaviour:
   level: 0
   tp: 0
   maxTp: 0
+  currency: 0
 --- !u!1 &1738547947
 GameObject:
   m_ObjectHideFlags: 0
@@ -20434,6 +20685,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: 9727fe64a2dfb7b46811a3db062afc7b, type: 2}
   _dialogue: {fileID: 4900000, guid: dece73cfffadfd34f8d6141130278dc5, type: 3}
   source: {fileID: 0}
+  isMission: 0
+  questInfoForPoint: {fileID: 0}
+  StartPoint: 0
+  FinishPoint: 0
+  _finishdialogue: {fileID: 0}
   item: {fileID: 11400000, guid: a04427c56727c3b449a2c9ee81119f15, type: 2}
   amount: 1
 --- !u!212 &1930737916
@@ -20655,6 +20911,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: 9727fe64a2dfb7b46811a3db062afc7b, type: 2}
   _dialogue: {fileID: 4900000, guid: dece73cfffadfd34f8d6141130278dc5, type: 3}
   source: {fileID: 0}
+  isMission: 0
+  questInfoForPoint: {fileID: 0}
+  StartPoint: 0
+  FinishPoint: 0
+  _finishdialogue: {fileID: 0}
   item: {fileID: 11400000, guid: a04427c56727c3b449a2c9ee81119f15, type: 2}
   amount: 1
 --- !u!212 &1940655495
@@ -23855,6 +24116,11 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: f9cd84f01e788b447b0ac16b3fe47f8f, type: 2}
   _dialogue: {fileID: 4900000, guid: 33d2396770cc1b840b71af01fefdf190, type: 3}
   source: {fileID: 0}
+  isMission: 1
+  questInfoForPoint: {fileID: 11400000, guid: bd56cf4c0c7c57a4bbafc946a463a24d, type: 2}
+  StartPoint: 1
+  FinishPoint: 1
+  _finishdialogue: {fileID: 4900000, guid: 302ad9818c7c4d949b03bb38b4b5795a, type: 3}
   item: {fileID: 0}
   amount: 0
 --- !u!212 &2131767213
