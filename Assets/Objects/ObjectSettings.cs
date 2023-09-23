@@ -10,7 +10,8 @@ public class ObjectSettings : ScriptableObject
     public enum Type
     {
         NPC,
-        Item
+        Item,
+        Door
     }
 
     public Type type;

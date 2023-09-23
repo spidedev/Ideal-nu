@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using randomL = System.Random;
+using Scene = UnityEngine.SceneManagement.Scene;
 
 public class TestNPC : MonoBehaviour
 {
@@ -35,6 +38,8 @@ public class TestNPC : MonoBehaviour
     public ItemObject item;
 
     public int amount;
+
+    [Header("(Don't use if not a Door.)")] public string sceneName;
 
     private void Awake()
     {
@@ -225,6 +230,9 @@ public class TestNPC : MonoBehaviour
                 {
                     AddObject();
                 }
+            } else if (_settings.type == ObjectSettings.Type.Door)
+            {
+                StartCoroutine(TransitionScene());
             }
         }
         else
@@ -245,5 +253,12 @@ public class TestNPC : MonoBehaviour
         _cooldown = true;
         yield return new WaitForSeconds(_secsToCooldown);
         _cooldown = false;
+    }
+
+    IEnumerator TransitionScene()
+    {
+        Transitions.instance.TransitionFunc();
+        yield return new WaitForSeconds(1.3f);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/CuttingRoomFloor.unity
+    guid: 1b040574f855b824784691d32367c596
+  - enabled: 1
+    path: Assets/Scenes/Bakery.unity
+    guid: 0ee2ab4d5f4f0e44a8ddfdcb393092cd
   m_configObjects: {}

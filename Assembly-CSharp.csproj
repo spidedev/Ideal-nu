@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ad59920d-ecaa-b6e3-149a-640c83cb75ed}</ProjectGuid>
+    <ProjectGuid>{3416d5b1-7fba-b16c-b570-e63e8e7840bd}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -41,15 +41,23 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Miscellaneous\Transitions.cs" />
+     <Compile Include="Assets\Resources\Quests\Prototype (#0001)\Step101.cs" />
      <Compile Include="Assets\Popups\Scripts\PopupManagement_MNG.cs" />
+     <Compile Include="Assets\Quest Systems\Events\QuestEventsManager.cs" />
+     <Compile Include="Assets\Quest Systems\Scripts\QuestState.cs" />
      <Compile Include="Assets\Inventory\Script\InventoryObject.cs" />
+     <Compile Include="Assets\Quest Systems\Scripts\QuestManager.cs" />
      <Compile Include="Assets\Inventory\Script\KeyItemObject.cs" />
      <Compile Include="Assets\Popups\Scripts\Popup_Own.cs" />
      <Compile Include="Assets\Input\MainInput.cs" />
      <Compile Include="Assets\Inventory\Script\OWN_GUI.cs" />
      <Compile Include="Assets\Player Scripts\PlayerStats.cs" />
      <Compile Include="Assets\HUD\Script\HUD_Manager.cs" />
+     <Compile Include="Assets\Quest Systems\Events\QuestEvents.cs" />
+     <Compile Include="Assets\Quest Systems\Scripts\Quest.cs" />
      <Compile Include="Assets\Dialogues\Dialogue Scripts\DialogueManager.cs" />
+     <Compile Include="Assets\Quest Systems\Scripts\QuestStep.cs" />
      <Compile Include="Assets\Objects\TestNPC.cs" />
      <Compile Include="Assets\Player Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Objects\ObjectSettings.cs" />
@@ -61,28 +69,26 @@
      <Compile Include="Assets\Inventory\Script\ItemObject.cs" />
      <Compile Include="Assets\Player Scripts\InventoryManagement_PLR.cs" />
      <Compile Include="Assets\Inventory\Script\Prompts_MiniManager.cs" />
+     <Compile Include="Assets\Miscellaneous\DontDestroy.cs" />
+     <Compile Include="Assets\Quest Systems\Scripts\QuestInfoSO.cs" />
      <Compile Include="Assets\Inventory\Script\FoodObject.cs" />
      <Compile Include="Assets\Player Scripts\Footsteps.cs" />
-     <Compile Include="Assets\Quest Systems\Scripts\QuestInfoSO.cs" />
-     <Compile Include="Assets\Quest Systems\Scripts\QuestStep.cs" />
-     <Compile Include="Assets\Resources\Quests\Prototype (#0001)\Step101.cs" />
-     <Compile Include="Assets\Quest Systems\Scripts\QuestState.cs" />
-     <Compile Include="Assets\Quest Systems\Scripts\Quest.cs" />
-     <Compile Include="Assets\Quest Systems\Scripts\QuestManager.cs" />
-     <Compile Include="Assets\Quest Systems\Events\QuestEvents.cs" />
-     <Compile Include="Assets\Quest Systems\Events\QuestEventsManager.cs" />
+     <Compile Include="Assets\Camera Shake\CamShake.cs" />
      <Folder Include="Assets" />
+     <Folder Include="Assets\Transitions\Normal" />
      <None Include="Assets\Dialogues\Test3.json" />
      <Folder Include="Assets\Sounds" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <Folder Include="Assets\Inventory\GUI\Prefab" />
      <Folder Include="Assets\Popups" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets\Dialogues\Bakery.json" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
      <Folder Include="Assets\HUD\Script" />
      <Folder Include="Assets\Sprites\New Folder\New Folder" />
      <Folder Include="Assets\Sprites\Tiles\TILESETS" />
      <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
+     <Folder Include="Assets\Sprites\New\Tiles 2" />
      <Folder Include="Assets\HUD" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\Inventory\Items" />
@@ -107,6 +113,7 @@
      <Folder Include="Assets\Ink\Demos\Basic Demo" />
      <Folder Include="Assets\Ink\Documentation" />
      <Folder Include="Assets\Core Fonts" />
+     <Folder Include="Assets\Miscellaneous" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <Folder Include="Assets\Sprites\Tiles\New Folder" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -115,6 +122,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <Folder Include="Assets\Inventory\GUI\Anims" />
      <Folder Include="Assets\Inventory\Script" />
+     <Folder Include="Assets\Sprites\New Folder 1" />
      <Folder Include="Assets\Objects" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
      <Folder Include="Assets\Popups\Anims" />
@@ -140,9 +148,12 @@
      <None Include="Assets\Ink\Demos\Basic Demo\Ink\story.json" />
      <Folder Include="Assets\Sprites\New Folder" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <Folder Include="Assets\Sprites\New\Tiles 1" />
      <Folder Include="Assets\Quest Systems\Scripts" />
      <Folder Include="Assets\HUD\Anims" />
      <Folder Include="Assets\Resources\Quests" />
+     <Folder Include="Assets\Transitions" />
+     <Folder Include="Assets\Sprites\New\door" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <Folder Include="Assets\Ink\Demos" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -152,6 +163,8 @@
      <Folder Include="Assets\Ink\Extras" />
      <None Include="Assets\Dialogues\Garden Flower.json" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets\Sprites\New" />
+     <Folder Include="Assets\Camera Shake" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
      <Folder Include="Assets\Fonts" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
@@ -727,58 +740,58 @@
      <HintPath>C:\Program Files\Unity 2020.3.48f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Cinemachine">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
      </Reference>
      <Reference Include="com.unity.cinemachine.editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InputSystem">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\Aless\fork\Ideal-nu\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>C:\Users\Aless\Downloads\Ideal-nu-master.7z\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Ink-Libraries.csproj">
-      <Project>{36dab1b8-8b86-b85c-5a57-ebf7c6ff999c}</Project>
+      <Project>{855d48f7-54c2-0be3-0094-9a5bfa035fe9}</Project>
       <Name>Ink-Libraries</Name>
     </ProjectReference>
     <ProjectReference Include="InkEditor.csproj">
-      <Project>{54b0ebf7-c272-c7d5-5170-8c1578bc3dc2}</Project>
+      <Project>{b72080b3-8312-032a-0db9-671384b25477}</Project>
       <Name>InkEditor</Name>
     </ProjectReference>
   </ItemGroup>

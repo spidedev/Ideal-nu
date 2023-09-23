@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Ink.Runtime;
 using TMPro;
@@ -74,8 +75,10 @@ public class DialogueManager : MonoBehaviour
     private bool _canContinueToNextLine = false;
     private bool _typing;
     private float _originalValue;
+    private const string SHAKE_TAG = "shout";
     
     public static event Action finishedDialogue;
+    public static event Action<float> shakeCam; 
 
     private void Awake()
     {
@@ -193,10 +196,38 @@ public class DialogueManager : MonoBehaviour
             displayLineCoroutine = StartCoroutine(DisplayLine(_story.Continue()));
             
             HandleNames();
+
+            HandleTags(_story.currentTags);
         }
         else
         {
             ExitDialogueMode();
+        }
+    }
+
+    private void HandleTags(List<string> currentTags)
+    {
+        foreach (string tag in currentTags)
+        {
+            string[] splitTag = tag.Split(':');
+            if (splitTag.Length != 2)
+            {
+                Debug.LogError("Tag could not be appropriately parsed: " + tag);
+            }
+
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
+            
+            switch (tagKey)
+            {
+                case SHAKE_TAG:
+                    shakeCam?.Invoke(float.Parse(tagValue));
+                    break;
+                
+                default:
+                    Debug.LogError("Tag Error: Tag not recognized, were you trying to write ''#shout:<time>''?");
+                    break;
+            }
         }
     }
 
@@ -211,6 +242,8 @@ public class DialogueManager : MonoBehaviour
         _dialogueText.text = "";
 
         _canContinueToNextLine = false;
+        
+        bool isAddingRichTextTag = false;
         
         HideChoices();
         
@@ -230,8 +263,20 @@ public class DialogueManager : MonoBehaviour
                 _source.PlayOneShot(dialogueTypingClip());
             }
 
-            _dialogueText.text += letter;
-            yield return new WaitForSeconds(_typingSpeed);
+            if (letter == '<' || isAddingRichTextTag)
+            {
+                isAddingRichTextTag = true;
+                _dialogueText.text += letter;
+                if (letter == '>')
+                {
+                    isAddingRichTextTag = false;
+                }
+            }
+            else
+            {
+                _dialogueText.text += letter;
+                yield return new WaitForSeconds(_typingSpeed);
+            }
         }
 
         _typing = false;

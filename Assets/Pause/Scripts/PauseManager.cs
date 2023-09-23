@@ -172,7 +172,7 @@ public class PauseManager : MonoBehaviour
         
         if (_input.Player.Pause.triggered)
         {
-            if (state == 0)
+            if (state == 0 && Transitions.transitioning == false)
             {
                 HandleGUI();
             }
@@ -408,6 +408,11 @@ public class PauseManager : MonoBehaviour
                 }
             }
         }
+
+        if (Transitions.transitioning)
+        {
+            paused = false;
+        }
         
         // Handling the states of Prefs.
 
@@ -422,7 +427,7 @@ public class PauseManager : MonoBehaviour
 
     private void HandleGUI()
     {
-        if (paused)
+        if (paused && !Transitions.transitioning)
         {
             paused = false;
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.Users;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class PlayerMovement : MonoBehaviour
@@ -80,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         };
-        if (DialogueManager.GetInstance()._dialogueIsPlaying || PauseManager.paused)
+        if (DialogueManager.GetInstance()._dialogueIsPlaying || PauseManager.paused || Transitions.transitioning)
         {
             _animator.SetFloat("Speed", 0.00f);
             return;
@@ -93,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (DialogueManager.GetInstance()._dialogueIsPlaying || PauseManager.paused)
+        if (DialogueManager.GetInstance()._dialogueIsPlaying || PauseManager.paused || Transitions.transitioning)
         {
             _rigidbody2D.velocity = new Vector2(0, 0);
             return;
